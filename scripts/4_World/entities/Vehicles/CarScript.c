@@ -85,13 +85,10 @@ modded class CarScript
 
     void CarLockLogInit()
     {
-        if (CarLockOwner != -1 && CarLockPassword != -1)
-            Print(GetDisplayName() + " (ownerId:" + CarLockOwner + " - pos " + GetPosition() + " - islocked:" + m_CarLock_IsLocked + " - password:" + CarLockPassword + ") initialized");
     }
 
     void CarLockLogClaimed()
     {
-        Print(GetDisplayName() + " (ownerId:" + CarLockOwner + " - pos " + GetPosition() + " - islocked:" + m_CarLock_IsLocked + " - password:" + CarLockPassword + ") new car claimed");
     }
 
     override void EEDelete(EntityAI parent)
@@ -99,8 +96,6 @@ modded class CarScript
         super.EEDelete(parent);
         if (GetGame().IsServer())
         {
-            if (CarLockOwner != -1 && CarLockPassword != -1)
-                Print(GetDisplayName() + " (ownerId:" + CarLockOwner + " - pos " + GetPosition() + " - islocked:" + m_CarLock_IsLocked + " - password:" + CarLockPassword + ") has been deleted");
         }
     }
 
@@ -252,7 +247,6 @@ modded class CarScript
 
         if (seconds > CARLOCK_BYPASS_MAX_SECONDS)
         {
-            Print("[CarLock] LockpickBypassSeconds " + seconds + " acima do teto - limitado a " + CARLOCK_BYPASS_MAX_SECONDS + "s (7 dias).");
             seconds = CARLOCK_BYPASS_MAX_SECONDS;
         }
 
@@ -266,7 +260,6 @@ modded class CarScript
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(EndCarLockBypass);
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(EndCarLockBypass, seconds * 1000, false);
 
-        Print(GetDisplayName() + " (ownerId:" + CarLockOwner + ") destravado pelo lockpick por " + seconds + "s");
     }
 
     //! Fim do prazo: o carro volta a trancar sozinho. Dono e senha intactos.
@@ -280,7 +273,6 @@ modded class CarScript
 
         SynchronizeValues();
 
-        Print(GetDisplayName() + " (ownerId:" + CarLockOwner + ") voltou a trancar (fim do lockpick)");
     }
 
     void StopAlarm()

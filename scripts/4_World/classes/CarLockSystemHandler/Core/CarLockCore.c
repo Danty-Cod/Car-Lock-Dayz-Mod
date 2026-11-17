@@ -6,7 +6,6 @@ class CarLockCore
 
 	void CarLockCore()
 	{
-		Print("CarLockCore - Started ! philmriss#7137");
 
 		if (GetGame().IsServer() || !GetGame().IsMultiplayer())
 		{

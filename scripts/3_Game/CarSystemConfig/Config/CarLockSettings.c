@@ -97,7 +97,6 @@ class CarLockSettings
 		if (FileExist(CARLOCK_CONFIG)) 
 		{
 			JsonFileLoader<CarLockSettings>.JsonLoadFile(CARLOCK_CONFIG, settings);
-			Print("file found !");
 
 			// Config de servidor ANTIGO nao tem os campos do lockpick. O
 			// construtor ja' deixou os defaults, aqui so' garantimos que ninguem
@@ -138,7 +137,6 @@ class CarLockSettings
 			if (needRewrite)
 			{
 				JsonFileLoader<CarLockSettings>.JsonSaveFile(CARLOCK_CONFIG, settings);
-				Print("[CarLock] Config atualizado com as chaves do lockpick temporario.");
 			}
 		}
 		else {

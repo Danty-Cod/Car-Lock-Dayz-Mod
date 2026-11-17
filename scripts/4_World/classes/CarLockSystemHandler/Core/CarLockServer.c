@@ -2,7 +2,6 @@ class CarLockServer
 {
 	void CarLockServer()
 	{
-		Print("CarLockServer - Started");
 	}
 
 	void CarLockRequest(CallType type, ParamsReadContext ctx, PlayerIdentity sender, Object target)
