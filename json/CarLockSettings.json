@@ -1,0 +1,13 @@
+{
+    "Admins": [
+        "76561199560473899",
+        "76561198019185282",
+        "76561199686971181"
+    ],
+    "LockpickBypassSeconds": 86400,
+    "LockpickDamage": 500,
+    "LockpickBreakChance": 1.0,
+    "LockpickDamageToPick": 50,
+    "LockpickActionSeconds": 150,
+    "AttachCarLockSeconds": 8
+}
